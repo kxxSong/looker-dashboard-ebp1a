@@ -4,59 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>EBP1A Dashboard</title>
-    <style>
-      html,
-      body {
-        height: 100%;
-        margin: 0;
-      }
-      .frame-wrap {
-        height: 100vh;
-        width: 100%;
-      }
-      iframe {
-        border: 0;
-        width: 100%;
-        height: 100%;
-      }
-    </style>
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <div class="frame-wrap">
-      <iframe
-        id="looker"
-        src="https://lookerstudio.google.com/embed/reporting/6adb4333-3157-427e-aa10-34fee0262736/page/p_1endzgexsd"
-        allowfullscreen
-      >
-      </iframe>
+      <iframe id="frameA" class="active" allowfullscreen></iframe>
+      <iframe id="frameB" allowfullscreen></iframe>
     </div>
 
-    <script>
-      (function () {
-        
-        const pages = ["p_1endzgexsd", "p_texbdxfmvd", "p_2x0f5io5td", 
-        "p_5yebpg6jxd", "p_4275ef5mud", "p_4pkb4m6uud", "p_nsu0tp6uud",
-        "p_kvsqfk6jxd", "p_4959fo6jxd", "p_xbwp0q6jxd", "p_v3zcwt6jxd",
-        "p_bzttsw6jxd", "p_irgop06jxd", "p_4sxnq26jxd", "p_ag6hv3beud",
-        "p_zc1wl8m4td", "p_ad61hko5td", "p_i2sztlo5td", "p_2oy574beud",
-        "p_brjf4g0jud"
-      ];
-        const base =
-          "https://lookerstudio.google.com/embed/reporting/6adb4333-3157-427e-aa10-34fee0262736/page/";
-        const iframe = document.getElementById("looker");
-        let idx = 0;
-
-        function setSrc(i) {
-          iframe.src = base + pages[i];
-        }
-
-        const INTERVAL_MS = 30_000; // 30 seconds
-        setSrc(idx);
-        const timer = setInterval(() => {
-          idx = (idx + 1) % pages.length;
-          setSrc(idx);
-        }, INTERVAL_MS);
-      })();
-    </script>
+    <script src="script.js"></script>
   </body>
 </html>
